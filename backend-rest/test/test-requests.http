@@ -1,0 +1,55 @@
+### CREATE
+### Create an Exercise.
+POST http://localhost:5005/exercises HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Squat",
+    "reps": 10,
+    "weight": 30,
+    "unit": "lbs",
+    "date": "01-18-22"
+}
+
+### Create another Exercise.
+POST http://localhost:5005/exercises HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Deadlift",
+    "reps": 10,
+    "weight": 30,
+    "unit": "lbs",
+    "date": "01-25-22"
+}
+
+
+### READ/RETRIEVE
+### Retrieve should return the 2 Exercises that were just created.
+GET http://localhost:5005/exercises HTTP/1.1
+
+
+### UPDATE
+### Edit the Deadlift. 
+### NOTE: Set the ID to the ID for Deadlift.
+PUT http://localhost:5005/exercises/622e92fe984b07a02b230392 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Deadlift",
+    "reps": 14,
+    "weight": 30,
+    "unit": "lbs",
+    "date": "01-25-22"
+}
+
+### Verify that reps value for Deadlift is now 14.
+GET http://localhost:5005/exercises HTTP/1.1
+
+### DELETE
+### Delete the Deadlift.
+### NOTE: Set the ID to the ID for Deadlift.
+DELETE http://localhost:5005/exercises/622e92fe984b07a02b230392 HTTP/1.1
+
+### Verify that the Deadlift exercise has been deleted.
+GET http://localhost:5005/exercises HTTP/1.1
